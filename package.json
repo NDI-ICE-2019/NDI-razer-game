@@ -1,0 +1,35 @@
+{
+  "name": "docker_server_node",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Node.js on Docker",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "concurrently -c black.bgYellow,black.bgGreen 'npm:build-dev' 'npm:start-dev'",
+    "start-dev": "sleep 3 && nodemon build/app.bundle.js",
+    "build-dev": "webpack --config webpack.config.js --mode development",
+    "start-prod": "npm run build-prod && npm run start-dev",
+    "build-prod": "webpack --config webpack.config.js --mode production"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.16.1",
+    "underscore": "^1.9.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/node": "^7.7.0",
+    "@babel/preset-env": "^7.7.4",
+    "@types/node": "^12.12.14",
+    "babel-loader": "^8.0.6",
+    "concurrently": "^5.0.0",
+    "nodemon": "^1.19.4",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
