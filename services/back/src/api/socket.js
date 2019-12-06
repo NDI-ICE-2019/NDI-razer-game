@@ -3,12 +3,16 @@ import { Player } from 'models/player';
 
 import { v4 as uuidv4 } from 'uuid';
 
+
 export class Socket {
 
   constructor(server) {
+
+    let battlefield = new Battlefield();
+
     // socket.io setup
     var io = require('socket.io').listen(server);
-    io.adapter.on('connection', socket => {
+    io.on('connection', socket => {
       console.log('a user connected');
   
       let player = new Player(uuidv4());
@@ -23,7 +27,7 @@ export class Socket {
       });
   
       socket.on('test', msg => {
-        console.log('received', test);
+        console.log('received', msg);
         socket.broadcast.emit('test callback', msg);
       });
   

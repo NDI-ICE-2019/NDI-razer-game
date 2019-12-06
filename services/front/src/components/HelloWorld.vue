@@ -38,6 +38,16 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import io from 'socket.io-client';
+
+const socket = io('http://localhost:3000');
+
+
+socket.on("test callback", (data: any) => {
+  console.log('received', data);
+});
+socket.emit("test", 'poulet');
+
 
 @Component
 export default class HelloWorld extends Vue {

@@ -4,7 +4,7 @@ import { BATTLEFIELD } from 'constants/game';
 export class Battlefield {
 
   constructor() {
-    this.players = {};
+    this._players = {};
   }
 
   // Getter
@@ -13,11 +13,11 @@ export class Battlefield {
 
   // Method
   addPlayer(player) {
-    this.players[player.uuid] = player;
+    this._players[player.uuid] = player;
   }
 
   removePlayer(player) {
-    delete this.players[player.uuid];
+    delete this._players[player.uuid];
   }
 
 }

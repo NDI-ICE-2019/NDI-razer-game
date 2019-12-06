@@ -5,58 +5,59 @@ import { randomRange } from 'helper/util';
 export class Player {
 
   constructor(uuid) {
-    this.uuid = uuid;
-    this.name = null;
+    console.log('hum', uuid);
+    this._uuid = uuid;
+    this._name = null;
 
-    this.x = randomRange(0, BATTLEFIELD.MAX_X);
-    this.y = randomRange(0, BATTLEFIELD.MAX_Y);
+    this._x = randomRange(0, BATTLEFIELD.MAX_X);
+    this._y = randomRange(0, BATTLEFIELD.MAX_Y);
 
-    this.gravitySpeed = 0;
+    this._gravitySpeed = 0;
 
-    this.healtPoint = 0;
-    this.damage = BATTLEFIELD.DEFAULT_DAMAGE;
+    this._healtPoint = 0;
+    this._damage = BATTLEFIELD.DEFAULT_DAMAGE;
 
-    this.killCount = 0;
-    this.deathCount = 0;
+    this._killCount = 0;
+    this._deathCount = 0;
 
   }
 
   // Getter
   get uuid() {
-    return this.uuid;
+    return this._uuid;
   }
 
-  get name() {
-    return this.name;
-  }
-
-  get playerBasicInfo() {
+  get getPlayerBasicInfo() {
     return {
-      uuid: this.uuid,
-      name: this.name,
-      damage: this.damage
+      uuid: this._uuid,
+      name: this._name,
+      damage: this._damage
     };
   }
 
-  get playerInfo() {
+  get getPlayerInfo() {
     return {
-      uuid: this.uuid,
-      x: this.x,
-      y: this.y,
-      healtPoint: this.healtPoint,
-      killCount: this.killCount,
-      deathCount: this.deathCoung
+      uuid: this._uuid,
+      x: this._x,
+      y: this._y,
+      healtPoint: this._healtPoint,
+      killCount: this._killCount,
+      deathCount: this._deathCoung
     };
   }
 
   // Setter
+  set uuid(uuid) {
+    console.log('lol');
+    this._uuid = uuid;
+  }
+
   set name(name) {
-    this.name = name;
+    this._name = name;
   }
 
   // Method
   jump() {
-
   }
 
 }

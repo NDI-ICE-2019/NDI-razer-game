@@ -10,8 +10,8 @@ import api from 'api';
 
 app.use('/', api);
 
-app.listen(NODE.PORT, NODE.HOST, () => {
+let socket = new Socket(server);
+
+server.listen(NODE.PORT, NODE.HOST, () => {
   console.log(`Running on http://${NODE.HOST}:${NODE.PORT}`);
 });
-
-let socket = new Socket(server);
