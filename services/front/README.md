@@ -1,34 +1,34 @@
-# NDI TEMPLATE - Server Node
+# front
 
-## Local Development
-
-To install :
+## Project setup
 ```
-npm install
+yarn install
 ```
 
-To start :
+### Compiles and hot-reloads for development
 ```
-npm start
-```
-
-### Start as Docker
-Note that it won't watch file changes, used for front development or hosting.
-
-To start :
-```
-sudo ./scripts/start_docker.sh
+yarn serve
 ```
 
-## Dependencies
+### Compiles and minifies for production
+```
+yarn build
+```
 
-- dotenv : https://www.npmjs.com/package/dotenv 
-- express : https://expressjs.com/
-- underscore : https://underscorejs.org/
+### Run your unit tests
+```
+yarn test:unit
+```
 
-### Dev dependencies
+### Run your end-to-end tests
+```
+yarn test:e2e
+```
 
-- babel : https://babeljs.io/
-- concurrently : https://www.npmjs.com/package/concurrently
-- nodemon : https://nodemon.io/
-- webpack : https://webpack.js.org/
+### Lints and fixes files
+```
+yarn lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).

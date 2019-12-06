@@ -1,37 +1,53 @@
 {
-  "name": "docker_server_node",
-  "version": "1.0.0",
+  "name": "front",
+  "version": "0.1.0",
   "private": true,
-  "description": "Node.js on Docker",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com"
-  },
-  "main": "server.js",
   "scripts": {
-    "start": "concurrently -c black.bgYellow,black.bgGreen 'npm:build-dev' 'npm:start-dev'",
-    "start-dev": "sleep 3 && nodemon build/app.bundle.js",
-    "build-dev": "webpack --config webpack.config.js --mode development",
-    "start-prod": "npm run build-prod && npm run start-dev",
-    "build-prod": "webpack --config webpack.config.js --mode production"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "test:e2e": "vue-cli-service test:e2e",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "dotenv": "^8.2.0",
-    "express": "^4.16.1",
-    "socket.io": "^2.3.0",
-    "socket.io-client": "^2.3.0",
-    "underscore": "^1.9.1"
+    "core-js": "^3.4.3",
+    "register-service-worker": "^1.6.2",
+    "vue": "^2.6.10",
+    "vue-class-component": "^7.0.2",
+    "vue-property-decorator": "^8.3.0",
+    "vue-router": "^3.1.3",
+    "vuex": "^3.1.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.4",
-    "@babel/node": "^7.7.0",
-    "@babel/preset-env": "^7.7.4",
-    "@types/node": "^12.12.14",
-    "babel-loader": "^8.0.6",
-    "concurrently": "^5.0.0",
-    "nodemon": "^1.19.4",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10",
-    "webpack-node-externals": "^1.7.2"
+    "@types/jest": "^24.0.19",
+    "@vue/cli-plugin-babel": "^4.1.0",
+    "@vue/cli-plugin-e2e-nightwatch": "^4.1.0",
+    "@vue/cli-plugin-eslint": "^4.1.0",
+    "@vue/cli-plugin-pwa": "^4.1.0",
+    "@vue/cli-plugin-router": "^4.1.0",
+    "@vue/cli-plugin-typescript": "^4.1.0",
+    "@vue/cli-plugin-unit-jest": "^4.1.0",
+    "@vue/cli-plugin-vuex": "^4.1.0",
+    "@vue/cli-service": "^4.1.0",
+    "@vue/eslint-config-typescript": "^4.0.0",
+    "@vue/test-utils": "1.0.0-beta.29",
+    "chromedriver": "78",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "geckodriver": "^1.19.1",
+    "lint-staged": "^9.4.3",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.0",
+    "typescript": "~3.5.3",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,vue,ts}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
   }
 }
