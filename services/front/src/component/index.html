@@ -14,9 +14,20 @@
   </head>
   <body>
     <ul id="messages"></ul>
-    Patate
+    <canvas id="canvas" width="300" height="300">
+        Désolé, votre navigateur ne prend pas en charge &lt;canvas&gt;.
+      </canvas>
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+    var socket = io.connect('http://localhost');
+    socket.on('chat message', function (data) {
+        console.log(data);
+    });
+    socket.emit('test');
+
+    </script>
   </body>
 </html>
