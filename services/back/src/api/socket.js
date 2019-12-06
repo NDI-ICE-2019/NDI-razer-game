@@ -8,7 +8,7 @@ export class Socket {
   constructor(server) {
     // socket.io setup
     var io = require('socket.io').listen(server);
-    io.of('/game').adapter.on('connection', socket => {
+    io.adapter.on('connection', socket => {
       console.log('a user connected');
   
       let player = new Player(uuidv4());
