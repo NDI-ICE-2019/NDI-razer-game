@@ -22,7 +22,8 @@ var config = {
   resolve: {
     modules: [
       path.resolve('./src'),
-      path.resolve('./node_modules')
+      path.resolve('./node_modules'),
+      path.resolve(__dirname, 'src')
     ]
   }
 };

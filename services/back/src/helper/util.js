@@ -4,3 +4,7 @@ export function test() {
     resolve('test');
   })
 };
+
+export function randomRange(min, max) {
+  return Math.random() * (max - min) + min;
+};

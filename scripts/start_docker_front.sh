@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cd ./services/front
+
 docker rmi ndi_server_node
 
 docker-compose --project-name ndi build server_node
