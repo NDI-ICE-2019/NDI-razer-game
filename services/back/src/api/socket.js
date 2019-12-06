@@ -8,27 +8,28 @@ export class Socket {
   constructor(server) {
     // socket.io setup
     var io = require('socket.io').listen(server);
-    io.of('/game').on('connection', socket => {
+    io.of('/game').adapter.on('connection', socket => {
       console.log('a user connected');
   
       let player = new Player(uuidv4());
       battlefield.addPlayer(player);
   
       socket.on('player name', name => {
-          player.name = name;
+        player.name = name;
+      });
+
+      socket.on('up', () => {
+        player.jump();
       });
   
       socket.on('test', msg => {
-          socket.broadcast.emit('chat message', msg);
-      });
-  
-      socket.on('chat message', msg => {
-          console.log('received')
+        console.log('received', test);
+        socket.broadcast.emit('test callback', msg);
       });
   
       socket.on('disconnect', () => {
-          console.log('user disconnected');
-          battlefield.removePlayer(player);
+        console.log('user disconnected');
+        battlefield.removePlayer(player);
       });
     });
   }

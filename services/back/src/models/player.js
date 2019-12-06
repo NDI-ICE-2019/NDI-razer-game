@@ -11,6 +11,8 @@ export class Player {
     this.x = randomRange(0, BATTLEFIELD.MAX_X);
     this.y = randomRange(0, BATTLEFIELD.MAX_Y);
 
+    this.gravitySpeed = 0;
+
     this.healtPoint = 0;
     this.damage = BATTLEFIELD.DEFAULT_DAMAGE;
 
@@ -53,5 +55,8 @@ export class Player {
   }
 
   // Method
+  jump() {
+
+  }
 
 }
